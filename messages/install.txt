@@ -1,6 +1,7 @@
-By3Menu 已安装。
+By3Menu 已安装。快捷键和右键菜单默认都是关闭的。
 
-命令面板搜索 By3Menu 可以运行命令。
-右键菜单不会自动出现。打开 Preferences → Package Settings → By3Menu → Example Context Menu，把左边复制到右边并保存。
-快捷键在 Example Key Bindings，复制到自己的快捷键文件后生效。
+命令面板搜索 By3Menu 可以直接运行命令。
+要开启：Sublime 顶部菜单 Preferences → Package Settings → By3Menu。
+Example Context Menu：左边整段复制到右边并保存，右键菜单才会出现。
+Example Key Bindings：只复制要用的几条到右边，不要整段覆盖。
 SVN 需要把 TortoiseSVN 的 bin 目录加入环境变量 Path，然后重新启动 Sublime Text。

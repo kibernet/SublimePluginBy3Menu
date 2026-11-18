@@ -3,7 +3,7 @@
 import os
 import sys
 
-VERSION = '1.0.4'
+VERSION = '1.0.5'
 COMMAND_NAME = 'by3_menu_run'
 TORTOISE_EXE = 'TortoiseProc.exe'
 SELECTION_ENV = 'BY3MENU_SELECTION'

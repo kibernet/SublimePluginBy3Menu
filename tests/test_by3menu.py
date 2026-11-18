@@ -617,10 +617,6 @@ def test_plugin_wires_commands():
         module.by3menu_lib.find_on_path = lambda name, path_value: r'C:\bin\TortoiseProc.exe'
         window = _Window(_View(), [PROJECT])
         command = module.By3MenuRunCommand(window)
-        if not command.is_visible(action='push_file'):
-            fail('command should show when a file is open')
-        if module.By3MenuRunCommand(_Window(None, [])).is_visible(action='push_file'):
-            fail('file item should hide when no file is open')
         command.run(action='svn_blame')
         if len(launched) != 1:
             fail('svn was not launched')

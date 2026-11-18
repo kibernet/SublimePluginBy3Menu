@@ -170,15 +170,6 @@ def _run_svn(window, project, result):
 
 
 class By3MenuRunCommand(sublime_plugin.WindowCommand):
-    def is_visible(self, action=None, **kwargs):
-        action_name = by3menu_lib.action_id(action) if action else ''
-        if action_name in by3menu_lib.FILE_ACTIONS:
-            view = self.window.active_view()
-            return bool(view and view.file_name())
-        if action_name in by3menu_lib.HANDLERS:
-            return bool(self.window.folders())
-        return False
-
     def run(self, action=None, **kwargs):
         try:
             self._run(action)

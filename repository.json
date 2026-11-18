@@ -1,0 +1,19 @@
+{
+  "schema_version": "3.0.0",
+  "packages": [
+    {
+      "name": "By3Menu",
+      "details": "https://github.com/kibernet/SublimePluginBy3Menu",
+      "homepage": "https://github.com/kibernet/SublimePluginBy3Menu",
+      "author": "kibernet",
+      "description": "By3Menu right-click menu: Push, HotReload, LuaConfig, Protocal, and TortoiseSVN.",
+      "labels": ["By3Menu"],
+      "releases": [
+        {
+          "sublime_text": "*",
+          "tags": true
+        }
+      ]
+    }
+  ]
+}

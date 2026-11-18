@@ -1,0 +1,302 @@
+[
+  {
+    "caption": "-"
+  },
+  {
+    "caption": "PushFile",
+    "children": [
+      {
+        "caption": "PushFile",
+        "command": "by3_menu_run",
+        "args": {
+          "action": "push_file"
+        }
+      },
+      {
+        "caption": "PushAppendFile",
+        "command": "by3_menu_run",
+        "args": {
+          "action": "push_append_file"
+        }
+      },
+      {
+        "caption": "-"
+      },
+      {
+        "caption": "PushDir",
+        "command": "by3_menu_run",
+        "args": {
+          "action": "push_dir"
+        }
+      },
+      {
+        "caption": "PushAppendDir",
+        "command": "by3_menu_run",
+        "args": {
+          "action": "push_append_dir"
+        }
+      },
+      {
+        "caption": "-"
+      },
+      {
+        "caption": "Push",
+        "command": "by3_menu_run",
+        "args": {
+          "action": "push"
+        }
+      }
+    ]
+  },
+  {
+    "caption": "HotReload",
+    "children": [
+      {
+        "caption": "HotReloadLuaFile",
+        "command": "by3_menu_run",
+        "args": {
+          "action": "hot_reload"
+        }
+      },
+      {
+        "caption": "LuaModelFuncTest",
+        "command": "by3_menu_run",
+        "args": {
+          "action": "lua_test"
+        }
+      },
+      {
+        "caption": "-"
+      },
+      {
+        "caption": "ReEnterFishing",
+        "command": "by3_menu_run",
+        "args": {
+          "action": "reenter"
+        }
+      },
+      {
+        "caption": "RefreshFishingFish",
+        "command": "by3_menu_run",
+        "args": {
+          "action": "refresh_fish"
+        }
+      },
+      {
+        "caption": "-"
+      },
+      {
+        "caption": "BackToHall",
+        "command": "by3_menu_run",
+        "args": {
+          "action": "back_hall"
+        }
+      }
+    ]
+  },
+  {
+    "caption": "LuaConfig",
+    "children": [
+      {
+        "caption": "UpdateLuaConfig",
+        "children": [
+          {
+            "caption": "by",
+            "command": "by3_menu_run",
+            "args": {
+              "action": "update_lua_by"
+            }
+          },
+          {
+            "caption": "xm",
+            "command": "by3_menu_run",
+            "args": {
+              "action": "update_lua_xm"
+            }
+          },
+          {
+            "caption": "all",
+            "command": "by3_menu_run",
+            "args": {
+              "action": "update_lua_all"
+            }
+          }
+        ]
+      },
+      {
+        "caption": "UpdateSheetLuaConfig",
+        "command": "by3_menu_run",
+        "args": {
+          "action": "update_sheet"
+        }
+      },
+      {
+        "caption": "UpdateExcelLuaConfig",
+        "command": "by3_menu_run",
+        "args": {
+          "action": "update_excel"
+        }
+      },
+      {
+        "caption": "DecryptCacheLuaConfig",
+        "command": "by3_menu_run",
+        "args": {
+          "action": "decrypt"
+        }
+      },
+      {
+        "caption": "OpenExcelSheetConfig",
+        "command": "by3_menu_run",
+        "args": {
+          "action": "open_excel"
+        }
+      },
+      {
+        "caption": "PrintExcelSheetName",
+        "children": [
+          {
+            "caption": "by",
+            "command": "by3_menu_run",
+            "args": {
+              "action": "print_by"
+            }
+          },
+          {
+            "caption": "xm",
+            "command": "by3_menu_run",
+            "args": {
+              "action": "print_xm"
+            }
+          },
+          {
+            "caption": "all",
+            "command": "by3_menu_run",
+            "args": {
+              "action": "print_all"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "caption": "Protocal",
+    "children": [
+      {
+        "caption": "UpdateProtocol",
+        "command": "by3_menu_run",
+        "args": {
+          "action": "update_protocol"
+        }
+      },
+      {
+        "caption": "FormatProtocal",
+        "command": "by3_menu_run",
+        "args": {
+          "action": "format_protocal"
+        }
+      }
+    ]
+  },
+  {
+    "caption": "Svn",
+    "children": [
+      {
+        "caption": "SvnUpdate",
+        "command": "by3_menu_run",
+        "args": {
+          "action": "svn_update"
+        }
+      },
+      {
+        "caption": "SvnLog",
+        "command": "by3_menu_run",
+        "args": {
+          "action": "svn_log"
+        }
+      },
+      {
+        "caption": "SvnCommit",
+        "command": "by3_menu_run",
+        "args": {
+          "action": "svn_commit"
+        }
+      },
+      {
+        "caption": "SvnBlame",
+        "command": "by3_menu_run",
+        "args": {
+          "action": "svn_blame"
+        }
+      },
+      {
+        "caption": "SvnDiff",
+        "command": "by3_menu_run",
+        "args": {
+          "action": "svn_diff"
+        }
+      },
+      {
+        "caption": "-"
+      },
+      {
+        "caption": "SvnUpdateRoot",
+        "command": "by3_menu_run",
+        "args": {
+          "action": "svn_update_root"
+        }
+      },
+      {
+        "caption": "SvnLogRoot",
+        "command": "by3_menu_run",
+        "args": {
+          "action": "svn_log_root"
+        }
+      },
+      {
+        "caption": "SvnCommitRoot",
+        "command": "by3_menu_run",
+        "args": {
+          "action": "svn_commit_root"
+        }
+      },
+      {
+        "caption": "-"
+      },
+      {
+        "caption": "SvnUpdateDir",
+        "command": "by3_menu_run",
+        "args": {
+          "action": "svn_update_dir"
+        }
+      },
+      {
+        "caption": "SvnLogDir",
+        "command": "by3_menu_run",
+        "args": {
+          "action": "svn_log_dir"
+        }
+      },
+      {
+        "caption": "SvnCommitDir",
+        "command": "by3_menu_run",
+        "args": {
+          "action": "svn_commit_dir"
+        }
+      },
+      {
+        "caption": "-"
+      },
+      {
+        "caption": "SvnMerge",
+        "command": "by3_menu_run",
+        "args": {
+          "action": "svn_merge"
+        }
+      }
+    ]
+  },
+  {
+    "caption": "-"
+  }
+]

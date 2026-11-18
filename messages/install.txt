@@ -1,0 +1,5 @@
+By3Menu 已安装。
+
+编辑器里右键可以看到 PushFile、HotReload、LuaConfig、Protocal、Svn。
+SVN 需要把 TortoiseSVN 的 bin 目录加入环境变量 Path，然后重新启动 Sublime Text。
+编辑器获得焦点时，Ctrl+Shift+P 是 PushFile。

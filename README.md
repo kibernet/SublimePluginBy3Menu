@@ -1,5 +1,7 @@
 # By3Menu
 
+Editor context menu for one game project. It runs the project's push, hot-reload, Lua config, and protocol scripts, and opens TortoiseSVN for the current file. Shortcuts match the Cursor / VS Code By3Menu plugin.
+
 Sublime Text 右键菜单，和 Cursor / VS Code 里的 By3Menu 一致：PushFile、HotReload、LuaConfig、Protocal、Svn。
 
 安装后在 Package Control 里搜索 **By3Menu**。`repository.json` 的 `sublime_text` 是 `*`，不限制 Sublime Text 版本。
@@ -30,7 +32,7 @@ SVN 只从环境变量 Path 里找 `TortoiseProc.exe`，不写死安装路径。
 
 ## 快捷键
 
-编辑器获得焦点时，这些快捷键和 Cursor 里的 By3Menu 相同，会盖过 Sublime 自己的同名快捷键。命令面板可以用菜单 Tools → Command Palette 打开。
+编辑器获得焦点时，这些快捷键和 Cursor 里的 By3Menu 相同，会盖过 Sublime 自己的同名快捷键。命令面板可以用菜单 Tools → Command Palette 打开。也可以从 Preferences → Package Settings → By3Menu 打开设置和快捷键，左右对照着改。把 `show_context_menu` 设为 `false` 会藏起右键菜单，命令面板和快捷键还在。
 
 | 命令 | Windows / Linux | macOS |
 |---|---|---|

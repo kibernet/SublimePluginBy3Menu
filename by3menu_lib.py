@@ -3,7 +3,7 @@
 import os
 import sys
 
-VERSION = '1.0.0'
+VERSION = '1.0.1'
 COMMAND_NAME = 'by3_menu_run'
 TORTOISE_EXE = 'TortoiseProc.exe'
 SELECTION_ENV = 'BY3MENU_SELECTION'
@@ -350,6 +350,9 @@ def _hot(project, file_path, line, selection, title, args):
 
 
 def _hot_reload(project, file_path, line, selection):
+    error = _need_file(project, file_path)
+    if error:
+        return error
     return _hot(
         project, file_path, line, selection, u'HotReloadLuaFile',
         ['event_name', 'reload_lua_file', 'lua_file_path', _rel(project, file_path)],
@@ -357,6 +360,9 @@ def _hot_reload(project, file_path, line, selection):
 
 
 def _lua_test(project, file_path, line, selection):
+    error = _need_file(project, file_path)
+    if error:
+        return error
     return _hot(
         project, file_path, line, selection, u'LuaModelFuncTest',
         ['event_name', 'lua_test_func', 'lua_file_path', _rel(project, file_path), 'func_name', 'test'],
@@ -530,6 +536,26 @@ HANDLERS, ACTION_ORDER = _register((
     ('svn_commit_dir', _svn_commit_dir),
     ('svn_merge', _svn_merge),
 ))
+
+
+FILE_ACTIONS = (
+    'push_file',
+    'push_append_file',
+    'push_dir',
+    'push_append_dir',
+    'update_sheet',
+    'update_excel',
+    'hot_reload',
+    'lua_test',
+    'svn_update',
+    'svn_log',
+    'svn_commit',
+    'svn_blame',
+    'svn_diff',
+    'svn_update_dir',
+    'svn_log_dir',
+    'svn_commit_dir',
+)
 
 
 def known_actions():

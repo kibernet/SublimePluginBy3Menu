@@ -356,6 +356,14 @@ def test_surface_files():
         fail('.python-version would pin a plugin host')
     if os.path.exists(os.path.join(ROOT, 'dependencies.json')):
         fail('dependencies.json is not needed and can restrict the install')
+    with open(os.path.join(ROOT, '.gitattributes'), 'r', encoding='utf-8') as handle:
+        attributes = handle.read()
+    if 'tests/ export-ignore' not in attributes or 'repository.json export-ignore' not in attributes:
+        fail('tests and repository.json must stay out of the installed package')
+    for action in by3menu_lib.FILE_ACTIONS:
+        result = plan(action, file_path=None)
+        if result.get('ok'):
+            fail('%s should need a file' % action)
 
 
 def _command_name_py33(class_name):
@@ -550,6 +558,12 @@ def _load_plugin():
     sublime.status_message = status_message
     sublime.error_message = error_message
     sublime.set_timeout = set_timeout
+
+    class _Settings(object):
+        def get(self, key, default=None):
+            return default
+
+    sublime.load_settings = lambda name: _Settings()
     sys.modules['sublime'] = sublime
     sys.modules['sublime_plugin'] = plugin
     sys.modules.pop('By3Menu', None)
@@ -589,6 +603,10 @@ def test_plugin_wires_commands():
         module.by3menu_lib.find_on_path = lambda name, path_value: r'C:\bin\TortoiseProc.exe'
         window = _Window(_View(), [PROJECT])
         command = module.By3MenuRunCommand(window)
+        if not command.is_visible(action='push_file', from_context_menu=True):
+            fail('context item should show for an open file')
+        if module.By3MenuRunCommand(_Window(None, [])).is_visible(action='push_file', from_context_menu=True):
+            fail('file item should hide when no file is open')
         command.run(action='svn_blame')
         if len(launched) != 1:
             fail('svn was not launched')

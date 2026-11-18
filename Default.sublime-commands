@@ -236,5 +236,21 @@
     "args": {
       "action": "svn_merge"
     }
+  },
+  {
+    "caption": "Preferences: By3Menu Settings",
+    "command": "edit_settings",
+    "args": {
+      "base_file": "${packages}/By3Menu/By3Menu.sublime-settings",
+      "default": "{\n\t\"show_context_menu\": true\n}\n"
+    }
+  },
+  {
+    "caption": "Preferences: By3Menu Key Bindings",
+    "command": "edit_settings",
+    "args": {
+      "base_file": "${packages}/By3Menu/Default (${platform}).sublime-keymap",
+      "default": "[\n\t$0\n]\n"
+    }
   }
 ]

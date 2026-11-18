@@ -140,12 +140,33 @@ def _menu_node(node):
     return {
         'caption': node['caption'],
         'command': COMMAND,
-        'args': {'action': node['action']},
+        'args': {'action': node['action'], 'from_context_menu': True},
     }
 
 
 def render_menu():
     return json.dumps([_menu_node(node) for node in MENU], indent=2, ensure_ascii=True) + '\n'
+
+
+def preference_commands():
+    return [
+        {
+            'caption': 'Preferences: By3Menu Settings',
+            'command': 'edit_settings',
+            'args': {
+                'base_file': '${packages}/By3Menu/By3Menu.sublime-settings',
+                'default': '{\n\t"show_context_menu": true\n}\n',
+            },
+        },
+        {
+            'caption': 'Preferences: By3Menu Key Bindings',
+            'command': 'edit_settings',
+            'args': {
+                'base_file': '${packages}/By3Menu/Default (${platform}).sublime-keymap',
+                'default': '[\n\t$0\n]\n',
+            },
+        },
+    ]
 
 
 def render_commands():
@@ -156,7 +177,38 @@ def render_commands():
             'command': COMMAND,
             'args': {'action': node['action']},
         })
+    entries.extend(preference_commands())
     return json.dumps(entries, indent=2, ensure_ascii=True) + '\n'
+
+
+def render_main_menu():
+    prefs = preference_commands()
+    menu = [{
+        'caption': 'Preferences',
+        'mnemonic': 'n',
+        'id': 'preferences',
+        'children': [{
+            'caption': 'Package Settings',
+            'mnemonic': 'P',
+            'id': 'package-settings',
+            'children': [{
+                'caption': 'By3Menu',
+                'children': [
+                    {
+                        'caption': 'Settings',
+                        'command': prefs[0]['command'],
+                        'args': prefs[0]['args'],
+                    },
+                    {
+                        'caption': 'Key Bindings',
+                        'command': prefs[1]['command'],
+                        'args': prefs[1]['args'],
+                    },
+                ],
+            }],
+        }],
+    }]
+    return json.dumps(menu, indent=2, ensure_ascii=True) + '\n'
 
 
 def _binding(action, keys, editor_focus):
@@ -182,4 +234,5 @@ def rendered_files():
         'Default (Windows).sublime-keymap': render_keymap(False),
         'Default (Linux).sublime-keymap': render_keymap(False),
         'Default (OSX).sublime-keymap': render_keymap(True),
+        'Main.sublime-menu': render_main_menu(),
     }

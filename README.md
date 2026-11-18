@@ -30,9 +30,11 @@ https://raw.githubusercontent.com/kibernet/SublimePluginBy3Menu/main/repository.
 
 SVN 只从环境变量 Path 里找 `TortoiseProc.exe`，不写死安装路径。找不到时会提示把 TortoiseSVN 的 bin 目录加入 Path，然后重新启动 Sublime Text。
 
-## 快捷键
+## 快捷键示例
 
-编辑器获得焦点时，这些快捷键和 Cursor 里的 By3Menu 相同，会盖过 Sublime 自己的同名快捷键。命令面板可以用菜单 Tools → Command Palette 打开。也可以从 Preferences → Package Settings → By3Menu 打开设置和快捷键，左右对照着改。把 `show_context_menu` 设为 `false` 会藏起右键菜单，命令面板和快捷键还在。
+这些快捷键和 Cursor 里的 By3Menu 相同，但安装后不会自动生效。从上面的 Example Key Bindings 复制到自己的快捷键文件后才会生效。命令面板搜索 `By3Menu` 可以直接运行命令。
+
+编辑器里的快捷键默认不生效，避免盖住 Sublime 自己的快捷键。打开 Preferences → Package Settings → By3Menu → Example Key Bindings，左边是示例，右边是你自己的快捷键文件，把要用的几条复制过去即可。右键菜单一直都在。把 `show_context_menu` 设为 `false` 会藏起右键菜单。
 
 | 命令 | Windows / Linux | macOS |
 |---|---|---|

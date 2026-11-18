@@ -162,8 +162,8 @@ def preference_commands():
             'caption': 'Preferences: By3Menu Key Bindings',
             'command': 'edit_settings',
             'args': {
-                'base_file': '${packages}/By3Menu/Default (${platform}).sublime-keymap',
-                'default': '[\n\t$0\n]\n',
+                'base_file': '${packages}/By3Menu/Example.sublime-keymap',
+                'user_file': '${packages}/User/Default (${platform}).sublime-keymap',
             },
         },
     ]
@@ -200,7 +200,7 @@ def render_main_menu():
                         'args': prefs[0]['args'],
                     },
                     {
-                        'caption': 'Key Bindings',
+                        'caption': 'Example Key Bindings',
                         'command': prefs[1]['command'],
                         'args': prefs[1]['args'],
                     },
@@ -220,10 +220,10 @@ def _binding(action, keys, editor_focus):
     }
 
 
-def render_keymap(mac):
+def render_example_keymap():
     bindings = []
-    for action, win_key, mac_key, editor_focus in KEYS:
-        bindings.append(_binding(action, mac_key if mac else win_key, editor_focus))
+    for action, win_key, _mac_key, editor_focus in KEYS:
+        bindings.append(_binding(action, win_key, editor_focus))
     return json.dumps(bindings, indent=2, ensure_ascii=True) + '\n'
 
 
@@ -231,8 +231,6 @@ def rendered_files():
     return {
         'Context.sublime-menu': render_menu(),
         'Default.sublime-commands': render_commands(),
-        'Default (Windows).sublime-keymap': render_keymap(False),
-        'Default (Linux).sublime-keymap': render_keymap(False),
-        'Default (OSX).sublime-keymap': render_keymap(True),
+        'Example.sublime-keymap': render_example_keymap(),
         'Main.sublime-menu': render_main_menu(),
     }

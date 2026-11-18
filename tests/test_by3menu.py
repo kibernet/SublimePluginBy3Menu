@@ -15,7 +15,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 if ROOT not in sys.path:
     sys.path.insert(0, ROOT)
 
-import by3menu_lib
+import lib.by3menu_lib as by3menu_lib
 import ui_spec
 
 PROJECT = os.path.abspath(r'E:\work\master')
@@ -342,11 +342,19 @@ def test_surface_files():
             actual = handle.read()
         if actual != text:
             fail('%s does not match ui_spec' % name)
-    for name in ('Default (Windows).sublime-keymap', 'Default (Linux).sublime-keymap', 'Default (OSX).sublime-keymap'):
+    for name in ('Example.sublime-keymap',):
         with open(os.path.join(ROOT, name), 'r', encoding='utf-8') as handle:
             text = handle.read()
         if 'cmd+' in text:
             fail('Sublime uses super, not cmd, in %s' % name)
+    for name in (
+        'Default.sublime-keymap',
+        'Default (Windows).sublime-keymap',
+        'Default (Linux).sublime-keymap',
+        'Default (OSX).sublime-keymap',
+    ):
+        if os.path.exists(os.path.join(ROOT, name)):
+            fail('%s would enable shortcuts for every user' % name)
     repo_path = os.path.join(ROOT, 'repository.json')
     with open(repo_path, 'r', encoding='utf-8') as handle:
         repo = handle.read()
@@ -446,7 +454,7 @@ def _forbid_modern_syntax(path):
 
 
 def test_source_is_portable():
-    for name in ('By3Menu.py', 'by3menu_lib.py'):
+    for name in ('By3Menu.py', 'lib/by3menu_lib.py'):
         _forbid_modern_syntax(os.path.join(ROOT, name))
         with open(os.path.join(ROOT, name), 'r', encoding='utf-8') as handle:
             source = handle.read()
@@ -567,7 +575,8 @@ def _load_plugin():
     sys.modules['sublime'] = sublime
     sys.modules['sublime_plugin'] = plugin
     sys.modules.pop('By3Menu', None)
-    sys.modules.pop('by3menu_lib', None)
+    sys.modules.pop('lib.by3menu_lib', None)
+    sys.modules.pop('lib', None)
     import By3Menu
     return By3Menu, messages, errors
 
@@ -653,7 +662,7 @@ def test_plugin_wires_commands():
 
 
 def test_no_hardcoded_paths_in_repo():
-    for name in ('By3Menu.py', 'by3menu_lib.py', 'README.md'):
+    for name in ('By3Menu.py', 'lib/by3menu_lib.py', 'README.md'):
         with open(os.path.join(ROOT, name), 'r', encoding='utf-8') as handle:
             text = handle.read()
         if 'F:\\TortoiseSVN' in text or 'C:\\Program Files\\TortoiseSVN' in text:

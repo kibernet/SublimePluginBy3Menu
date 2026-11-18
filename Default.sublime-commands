@@ -249,8 +249,8 @@
     "caption": "Preferences: By3Menu Key Bindings",
     "command": "edit_settings",
     "args": {
-      "base_file": "${packages}/By3Menu/Default (${platform}).sublime-keymap",
-      "default": "[\n\t$0\n]\n"
+      "base_file": "${packages}/By3Menu/Example.sublime-keymap",
+      "user_file": "${packages}/User/Default (${platform}).sublime-keymap"
     }
   }
 ]

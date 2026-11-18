@@ -7,26 +7,14 @@ import threading
 import sublime
 import sublime_plugin
 
-_PACKAGE_DIR = os.path.dirname(os.path.abspath(__file__))
-if _PACKAGE_DIR not in sys.path:
-    sys.path.insert(0, _PACKAGE_DIR)
-
 
 def _import_lib():
     try:
-        import by3menu_lib
+        from .lib import by3menu_lib
         return by3menu_lib
-    except ImportError:
-        source = os.path.join(_PACKAGE_DIR, 'by3menu_lib.py')
-        if sys.version_info >= (3, 5):
-            import importlib.util
-            spec = importlib.util.spec_from_file_location('by3menu_lib', source)
-            module = importlib.util.module_from_spec(spec)
-            sys.modules['by3menu_lib'] = module
-            spec.loader.exec_module(module)
-            return module
-        import imp
-        return imp.load_source('by3menu_lib', source)
+    except (ImportError, ValueError):
+        import lib.by3menu_lib as by3menu_lib
+        return by3menu_lib
 
 
 def _reload_lib(module):

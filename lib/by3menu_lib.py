@@ -3,7 +3,7 @@
 import os
 import sys
 
-VERSION = '1.0.5'
+VERSION = '1.0.6'
 COMMAND_NAME = 'by3_menu_run'
 TORTOISE_EXE = 'TortoiseProc.exe'
 SELECTION_ENV = 'BY3MENU_SELECTION'
@@ -112,6 +112,23 @@ def _is_inside(child, parent):
 
 def _has_scripts(folder):
     return os.path.isfile(os.path.join(folder, *SCRIPT_MARK))
+
+
+def discover_project(file_path):
+    """没把文件夹加进 Sublime 时，从当前文件向上找带 tools/idea_tools 的工程根。"""
+    if not file_path:
+        return None
+    directory = os.path.dirname(os.path.abspath(file_path))
+    previous = None
+    while directory and directory != previous:
+        if _has_scripts(directory):
+            return directory
+        previous = directory
+        parent = os.path.dirname(directory)
+        if parent == directory:
+            break
+        directory = parent
+    return None
 
 
 def project_folder_for(folders, file_path):

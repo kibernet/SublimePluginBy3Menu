@@ -106,6 +106,11 @@ def test_project_folder():
         chosen = by3menu_lib.project_folder_for([nested, root], file_path)
         if os.path.normcase(chosen) != os.path.normcase(root):
             fail('should pick the folder that contains tools/idea_tools, got %s' % chosen)
+        found = by3menu_lib.discover_project(file_path)
+        if os.path.normcase(found) != os.path.normcase(root):
+            fail('discover from file should walk up to the project, got %s' % found)
+        if by3menu_lib.discover_project(os.path.join(outside, 'Z.lua')) is not None:
+            fail('discover should stop when the project scripts are absent')
         chosen = by3menu_lib.project_folder_for([root], None)
         if os.path.normcase(chosen) != os.path.normcase(os.path.abspath(root)):
             fail('no file falls back to first folder')
@@ -653,8 +658,8 @@ def test_plugin_wires_commands():
             fail('non-windows message')
         empty = module.By3MenuRunCommand(_Window(None, []))
         empty.run(action='back_hall')
-        if not messages or messages[-1] != by3menu_lib.MSG_NO_PROJECT:
-            fail('no project status %s' % messages)
+        if not errors or by3menu_lib.MSG_NO_PROJECT not in errors[-1]:
+            fail('no project dialog %s' % errors)
     finally:
         subprocess.Popen = real_popen
         os.path.isfile = real_isfile

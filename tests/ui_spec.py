@@ -5,7 +5,6 @@ import json
 COMMAND = 'by3_menu_run'
 
 EDITOR_CONTEXT = [
-    {'key': 'setting.is_widget', 'operator': 'equal', 'operand': False},
     {'key': 'overlay_visible', 'operator': 'equal', 'operand': False},
 ]
 GLOBAL_CONTEXT = [

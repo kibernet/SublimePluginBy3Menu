@@ -181,11 +181,15 @@ class By3MenuRunCommand(sublime_plugin.WindowCommand):
             _error(by3menu_lib.MSG_WINDOWS)
             return
         file_path, line, selection = _active_file(self.window)
-        folders = self.window.folders() or []
+        folders = list(self.window.folders() or [])
+        if not folders and file_path:
+            discovered = by3menu_lib.discover_project(file_path)
+            if discovered:
+                folders = [discovered]
         project = by3menu_lib.project_folder_for(folders, file_path)
         result = by3menu_lib.plan(action, project, file_path, line, selection)
         if not result.get('ok'):
-            _status(result.get('message') or by3menu_lib.MSG_UNKNOWN % u'')
+            _error(result.get('message') or by3menu_lib.MSG_UNKNOWN % u'')
             return
         if result['kind'] == 'svn':
             _run_svn(self.window, project, result)

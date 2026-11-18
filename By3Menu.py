@@ -170,11 +170,7 @@ def _run_svn(window, project, result):
 
 
 class By3MenuRunCommand(sublime_plugin.WindowCommand):
-    def is_visible(self, action=None, from_context_menu=False, **kwargs):
-        if from_context_menu:
-            settings = sublime.load_settings('By3Menu.sublime-settings')
-            if not settings.get('show_context_menu', False):
-                return False
+    def is_visible(self, action=None, **kwargs):
         action_name = by3menu_lib.action_id(action) if action else ''
         if action_name in by3menu_lib.FILE_ACTIONS:
             view = self.window.active_view()

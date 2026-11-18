@@ -32,11 +32,9 @@ SVN 只从环境变量 Path 里找 `TortoiseProc.exe`，不写死安装路径。
 
 ## 快捷键示例
 
-这些快捷键和 Cursor 里的 By3Menu 相同，但安装后不会自动生效。从上面的 Example Key Bindings 复制到自己的快捷键文件后才会生效。命令面板搜索 `By3Menu` 可以直接运行命令。
+这些快捷键和 Cursor 里的 By3Menu 相同，但安装后不会自动生效。打开 Preferences → Package Settings → By3Menu → Example Key Bindings，左边是示例，右边是你自己的快捷键文件，把要用的几条复制过去并保存。
 
-编辑器里的快捷键默认不生效，避免盖住 Sublime 自己的快捷键。打开 Preferences → Package Settings → By3Menu → Example Key Bindings，左边是示例，右边是你自己的快捷键文件，把要用的几条复制过去即可。
-
-右键菜单默认也不出现。打开 Preferences → Package Settings → By3Menu → Settings，在右边把自己的设置写成 `"show_context_menu": true` 并保存，右键菜单就会出来。命令面板里搜索 `By3Menu` 不需要开这个开关。
+右键菜单同样不会自动出现。打开 Preferences → Package Settings → By3Menu → Example Context Menu，把左边整段复制到右边并保存。命令面板搜索 `By3Menu` 可以直接运行命令，不依赖右键和快捷键。
 
 | 命令 | Windows / Linux | macOS |
 |---|---|---|

@@ -17,7 +17,15 @@
                 "command": "edit_settings",
                 "args": {
                   "base_file": "${packages}/By3Menu/By3Menu.sublime-settings",
-                  "default": "{\n\t\"show_context_menu\": true\n}\n"
+                  "default": "{\n\t$0\n}\n"
+                }
+              },
+              {
+                "caption": "Example Context Menu",
+                "command": "edit_settings",
+                "args": {
+                  "base_file": "${packages}/By3Menu/Example.sublime-menu",
+                  "user_file": "${packages}/User/Context.sublime-menu"
                 }
               },
               {

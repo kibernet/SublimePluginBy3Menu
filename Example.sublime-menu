@@ -9,16 +9,14 @@
         "caption": "PushFile",
         "command": "by3_menu_run",
         "args": {
-          "action": "push_file",
-          "from_context_menu": true
+          "action": "push_file"
         }
       },
       {
         "caption": "PushAppendFile",
         "command": "by3_menu_run",
         "args": {
-          "action": "push_append_file",
-          "from_context_menu": true
+          "action": "push_append_file"
         }
       },
       {
@@ -28,16 +26,14 @@
         "caption": "PushDir",
         "command": "by3_menu_run",
         "args": {
-          "action": "push_dir",
-          "from_context_menu": true
+          "action": "push_dir"
         }
       },
       {
         "caption": "PushAppendDir",
         "command": "by3_menu_run",
         "args": {
-          "action": "push_append_dir",
-          "from_context_menu": true
+          "action": "push_append_dir"
         }
       },
       {
@@ -47,8 +43,7 @@
         "caption": "Push",
         "command": "by3_menu_run",
         "args": {
-          "action": "push",
-          "from_context_menu": true
+          "action": "push"
         }
       }
     ]
@@ -60,16 +55,14 @@
         "caption": "HotReloadLuaFile",
         "command": "by3_menu_run",
         "args": {
-          "action": "hot_reload",
-          "from_context_menu": true
+          "action": "hot_reload"
         }
       },
       {
         "caption": "LuaModelFuncTest",
         "command": "by3_menu_run",
         "args": {
-          "action": "lua_test",
-          "from_context_menu": true
+          "action": "lua_test"
         }
       },
       {
@@ -79,16 +72,14 @@
         "caption": "ReEnterFishing",
         "command": "by3_menu_run",
         "args": {
-          "action": "reenter",
-          "from_context_menu": true
+          "action": "reenter"
         }
       },
       {
         "caption": "RefreshFishingFish",
         "command": "by3_menu_run",
         "args": {
-          "action": "refresh_fish",
-          "from_context_menu": true
+          "action": "refresh_fish"
         }
       },
       {
@@ -98,8 +89,7 @@
         "caption": "BackToHall",
         "command": "by3_menu_run",
         "args": {
-          "action": "back_hall",
-          "from_context_menu": true
+          "action": "back_hall"
         }
       }
     ]
@@ -114,24 +104,21 @@
             "caption": "by",
             "command": "by3_menu_run",
             "args": {
-              "action": "update_lua_by",
-              "from_context_menu": true
+              "action": "update_lua_by"
             }
           },
           {
             "caption": "xm",
             "command": "by3_menu_run",
             "args": {
-              "action": "update_lua_xm",
-              "from_context_menu": true
+              "action": "update_lua_xm"
             }
           },
           {
             "caption": "all",
             "command": "by3_menu_run",
             "args": {
-              "action": "update_lua_all",
-              "from_context_menu": true
+              "action": "update_lua_all"
             }
           }
         ]
@@ -140,32 +127,28 @@
         "caption": "UpdateSheetLuaConfig",
         "command": "by3_menu_run",
         "args": {
-          "action": "update_sheet",
-          "from_context_menu": true
+          "action": "update_sheet"
         }
       },
       {
         "caption": "UpdateExcelLuaConfig",
         "command": "by3_menu_run",
         "args": {
-          "action": "update_excel",
-          "from_context_menu": true
+          "action": "update_excel"
         }
       },
       {
         "caption": "DecryptCacheLuaConfig",
         "command": "by3_menu_run",
         "args": {
-          "action": "decrypt",
-          "from_context_menu": true
+          "action": "decrypt"
         }
       },
       {
         "caption": "OpenExcelSheetConfig",
         "command": "by3_menu_run",
         "args": {
-          "action": "open_excel",
-          "from_context_menu": true
+          "action": "open_excel"
         }
       },
       {
@@ -175,24 +158,21 @@
             "caption": "by",
             "command": "by3_menu_run",
             "args": {
-              "action": "print_by",
-              "from_context_menu": true
+              "action": "print_by"
             }
           },
           {
             "caption": "xm",
             "command": "by3_menu_run",
             "args": {
-              "action": "print_xm",
-              "from_context_menu": true
+              "action": "print_xm"
             }
           },
           {
             "caption": "all",
             "command": "by3_menu_run",
             "args": {
-              "action": "print_all",
-              "from_context_menu": true
+              "action": "print_all"
             }
           }
         ]
@@ -206,16 +186,14 @@
         "caption": "UpdateProtocol",
         "command": "by3_menu_run",
         "args": {
-          "action": "update_protocol",
-          "from_context_menu": true
+          "action": "update_protocol"
         }
       },
       {
         "caption": "FormatProtocal",
         "command": "by3_menu_run",
         "args": {
-          "action": "format_protocal",
-          "from_context_menu": true
+          "action": "format_protocal"
         }
       }
     ]
@@ -227,40 +205,35 @@
         "caption": "SvnUpdate",
         "command": "by3_menu_run",
         "args": {
-          "action": "svn_update",
-          "from_context_menu": true
+          "action": "svn_update"
         }
       },
       {
         "caption": "SvnLog",
         "command": "by3_menu_run",
         "args": {
-          "action": "svn_log",
-          "from_context_menu": true
+          "action": "svn_log"
         }
       },
       {
         "caption": "SvnCommit",
         "command": "by3_menu_run",
         "args": {
-          "action": "svn_commit",
-          "from_context_menu": true
+          "action": "svn_commit"
         }
       },
       {
         "caption": "SvnBlame",
         "command": "by3_menu_run",
         "args": {
-          "action": "svn_blame",
-          "from_context_menu": true
+          "action": "svn_blame"
         }
       },
       {
         "caption": "SvnDiff",
         "command": "by3_menu_run",
         "args": {
-          "action": "svn_diff",
-          "from_context_menu": true
+          "action": "svn_diff"
         }
       },
       {
@@ -270,24 +243,21 @@
         "caption": "SvnUpdateRoot",
         "command": "by3_menu_run",
         "args": {
-          "action": "svn_update_root",
-          "from_context_menu": true
+          "action": "svn_update_root"
         }
       },
       {
         "caption": "SvnLogRoot",
         "command": "by3_menu_run",
         "args": {
-          "action": "svn_log_root",
-          "from_context_menu": true
+          "action": "svn_log_root"
         }
       },
       {
         "caption": "SvnCommitRoot",
         "command": "by3_menu_run",
         "args": {
-          "action": "svn_commit_root",
-          "from_context_menu": true
+          "action": "svn_commit_root"
         }
       },
       {
@@ -297,24 +267,21 @@
         "caption": "SvnUpdateDir",
         "command": "by3_menu_run",
         "args": {
-          "action": "svn_update_dir",
-          "from_context_menu": true
+          "action": "svn_update_dir"
         }
       },
       {
         "caption": "SvnLogDir",
         "command": "by3_menu_run",
         "args": {
-          "action": "svn_log_dir",
-          "from_context_menu": true
+          "action": "svn_log_dir"
         }
       },
       {
         "caption": "SvnCommitDir",
         "command": "by3_menu_run",
         "args": {
-          "action": "svn_commit_dir",
-          "from_context_menu": true
+          "action": "svn_commit_dir"
         }
       },
       {
@@ -324,8 +291,7 @@
         "caption": "SvnMerge",
         "command": "by3_menu_run",
         "args": {
-          "action": "svn_merge",
-          "from_context_menu": true
+          "action": "svn_merge"
         }
       }
     ]

@@ -140,7 +140,7 @@ def _menu_node(node):
     return {
         'caption': node['caption'],
         'command': COMMAND,
-        'args': {'action': node['action'], 'from_context_menu': True},
+        'args': {'action': node['action']},
     }
 
 
@@ -155,7 +155,15 @@ def preference_commands():
             'command': 'edit_settings',
             'args': {
                 'base_file': '${packages}/By3Menu/By3Menu.sublime-settings',
-                'default': '{\n\t"show_context_menu": true\n}\n',
+                'default': '{\n\t$0\n}\n',
+            },
+        },
+        {
+            'caption': 'Preferences: By3Menu Context Menu',
+            'command': 'edit_settings',
+            'args': {
+                'base_file': '${packages}/By3Menu/Example.sublime-menu',
+                'user_file': '${packages}/User/Context.sublime-menu',
             },
         },
         {
@@ -200,9 +208,14 @@ def render_main_menu():
                         'args': prefs[0]['args'],
                     },
                     {
-                        'caption': 'Example Key Bindings',
+                        'caption': 'Example Context Menu',
                         'command': prefs[1]['command'],
                         'args': prefs[1]['args'],
+                    },
+                    {
+                        'caption': 'Example Key Bindings',
+                        'command': prefs[2]['command'],
+                        'args': prefs[2]['args'],
                     },
                 ],
             }],
@@ -229,7 +242,7 @@ def render_example_keymap():
 
 def rendered_files():
     return {
-        'Context.sublime-menu': render_menu(),
+        'Example.sublime-menu': render_menu(),
         'Default.sublime-commands': render_commands(),
         'Example.sublime-keymap': render_example_keymap(),
         'Main.sublime-menu': render_main_menu(),

@@ -355,6 +355,8 @@ def test_surface_files():
     ):
         if os.path.exists(os.path.join(ROOT, name)):
             fail('%s would enable shortcuts for every user' % name)
+    if os.path.exists(os.path.join(ROOT, 'Context.sublime-menu')):
+        fail('Context.sublime-menu would add a right-click menu for every user')
     repo_path = os.path.join(ROOT, 'repository.json')
     with open(repo_path, 'r', encoding='utf-8') as handle:
         repo = handle.read()
@@ -615,14 +617,9 @@ def test_plugin_wires_commands():
         module.by3menu_lib.find_on_path = lambda name, path_value: r'C:\bin\TortoiseProc.exe'
         window = _Window(_View(), [PROJECT])
         command = module.By3MenuRunCommand(window)
-        if command.is_visible(action='push_file', from_context_menu=True):
-            fail('context menu stays hidden until the user enables it')
         if not command.is_visible(action='push_file'):
-            fail('command palette stays available while the context menu is hidden')
-        sys.modules['sublime']._by3_settings['show_context_menu'] = True
-        if not command.is_visible(action='push_file', from_context_menu=True):
-            fail('context item should show after the user turns it on')
-        if module.By3MenuRunCommand(_Window(None, [])).is_visible(action='push_file', from_context_menu=True):
+            fail('command should show when a file is open')
+        if module.By3MenuRunCommand(_Window(None, [])).is_visible(action='push_file'):
             fail('file item should hide when no file is open')
         command.run(action='svn_blame')
         if len(launched) != 1:

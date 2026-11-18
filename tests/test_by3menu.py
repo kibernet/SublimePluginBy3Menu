@@ -569,8 +569,11 @@ def _load_plugin():
 
     class _Settings(object):
         def get(self, key, default=None):
+            if key in sublime._by3_settings:
+                return sublime._by3_settings[key]
             return default
 
+    sublime._by3_settings = {'show_context_menu': False}
     sublime.load_settings = lambda name: _Settings()
     sys.modules['sublime'] = sublime
     sys.modules['sublime_plugin'] = plugin
@@ -612,8 +615,13 @@ def test_plugin_wires_commands():
         module.by3menu_lib.find_on_path = lambda name, path_value: r'C:\bin\TortoiseProc.exe'
         window = _Window(_View(), [PROJECT])
         command = module.By3MenuRunCommand(window)
+        if command.is_visible(action='push_file', from_context_menu=True):
+            fail('context menu stays hidden until the user enables it')
+        if not command.is_visible(action='push_file'):
+            fail('command palette stays available while the context menu is hidden')
+        sys.modules['sublime']._by3_settings['show_context_menu'] = True
         if not command.is_visible(action='push_file', from_context_menu=True):
-            fail('context item should show for an open file')
+            fail('context item should show after the user turns it on')
         if module.By3MenuRunCommand(_Window(None, [])).is_visible(action='push_file', from_context_menu=True):
             fail('file item should hide when no file is open')
         command.run(action='svn_blame')
